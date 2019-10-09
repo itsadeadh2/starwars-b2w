@@ -15,5 +15,8 @@ module.exports = {
     ecmaVersion: 2018,
   },
   rules: {
+    "no-undef": "off",
+    "global-require": "off",
+    "no-return-await": "off"
   },
 };
