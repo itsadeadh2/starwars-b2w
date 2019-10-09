@@ -1,3 +1,3 @@
 {
-  "db": "mongo://mongo/starwarsdb"
+  "db": "mongodb://mongo/star_wars_planets_db"
 }
