@@ -5,7 +5,8 @@
   "main": "bin/server.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha",
-    "start": "node bin/server.js"
+    "start": "node bin/server.js",
+    "dev": "nodemon bin/server.js"
   },
   "keywords": [
     "star-wars",
@@ -15,6 +16,7 @@
   "author": "Thiago Barbosa da Silva",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.19.0",
     "chai": "^4.2.0",
     "config": "^3.2.3",
     "express": "^4.17.1",
