@@ -1,0 +1,33 @@
+{
+  "name": "b2w-starwars",
+  "version": "1.0.0",
+  "description": "API dos planetas de Star Wars para o teste da B2W.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "star-wars",
+    "api",
+    "b2w"
+  ],
+  "author": "Thiago Barbosa da Silva",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "config": "^3.2.3",
+    "express": "^4.17.1",
+    "joi": "^14.3.1",
+    "lodash": "^4.17.15",
+    "mocha": "^6.2.1",
+    "mongoose": "^5.7.4",
+    "nyc": "^14.1.1",
+    "supertest": "^4.0.2",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2"
+  }
+}
