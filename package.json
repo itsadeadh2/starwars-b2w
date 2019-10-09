@@ -2,9 +2,10 @@
   "name": "b2w-starwars",
   "version": "1.0.0",
   "description": "API dos planetas de Star Wars para o teste da B2W.",
-  "main": "index.js",
+  "main": "bin/server.js",
   "scripts": {
-    "test": "mocha"
+    "test": "./node_modules/mocha/bin/mocha",
+    "start": "node bin/server.js"
   },
   "keywords": [
     "star-wars",
