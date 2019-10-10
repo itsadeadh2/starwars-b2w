@@ -1,6 +1,7 @@
 # B2W Star Wars API
 
 [![CircleCI](https://circleci.com/gh/itsadeadh2/starwars-b2w.svg?style=svg)](https://circleci.com/gh/itsadeadh2/starwars-b2w)
+[![codecov](https://codecov.io/gh/itsadeadh2/starwars-b2w/branch/master/graph/badge.svg)](https://codecov.io/gh/itsadeadh2/starwars-b2w)
 
 API dos planetas de Star Wars para o teste da B2W.
 
