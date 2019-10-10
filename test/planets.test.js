@@ -51,7 +51,6 @@ describe('/planets', () => {
 
   describe('GET ALL', () => {
     let planeta2;
-    let planeta3;
     let queryParam;
     beforeEach(async () => {
       planeta2 = {
@@ -59,14 +58,8 @@ describe('/planets', () => {
         clima: 'Quente',
         terreno: 'Acidentado',
       };
-      planeta3 = {
-        nome: 'Hoth',
-        clima: 'Quente',
-        terreno: 'Acidentado',
-      };
       await request(server).post('/planets').send(planeta);
       await request(server).post('/planets').send(planeta2);
-      await request(server).post('/planets').send(planeta3);
     });
 
     const exec = async () => await request(server).get(`/planets?nome=${queryParam}`).send();
