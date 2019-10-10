@@ -5,7 +5,7 @@ const expect = require('chai').expect;
 let server;
 
 describe('/planets', () => {
-  beforeEach(() => {
+  beforeEach(async () => {
     server = require('../bin/server');
   });
   afterEach(async () => {
@@ -86,4 +86,3 @@ describe('/planets', () => {
     });
   });
 });
-

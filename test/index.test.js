@@ -4,7 +4,7 @@ const { expect } = require('chai');
 let server;
 
 describe('/', () => {
-  beforeEach(() => {
+  beforeEach(async () => {
     server = require('../bin/server');
   });
   afterEach(async () => {
