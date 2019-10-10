@@ -5,6 +5,7 @@
   "main": "bin/server.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha --exit --timeout 15000",
+    "coverage": "nyc --reporter=lcov npm run test",
     "start": "node bin/server.js",
     "dev": "nodemon bin/server.js"
   },

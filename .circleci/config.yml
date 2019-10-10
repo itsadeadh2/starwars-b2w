@@ -36,4 +36,10 @@ jobs:
           name: run test
           command: npm run test
           environment: 
-            DATABASE: mongodb://localhost/star_wars_planets_db              
+            DATABASE: mongodb://localhost/star_wars_planets_db
+      - run:
+          name: Generate code coverage
+          command: npm run coverage
+      - store_artifacts:
+          path: coverage
+          prefix: coverage            
