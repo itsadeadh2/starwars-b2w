@@ -46,4 +46,4 @@ jobs:
           path: coverage
           prefix: coverage    
       - codecov/upload:
-          file: {{ coverage/lcov.info}}
+          file: coverage/lcov.info
