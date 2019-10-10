@@ -17,6 +17,7 @@ module.exports = {
   rules: {
     "no-undef": "off",
     "global-require": "off",
-    "no-return-await": "off"
+    "no-return-await": "off",
+    "no-underscore-dangle": "off",
   },
 };
