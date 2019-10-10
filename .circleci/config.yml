@@ -44,6 +44,7 @@ jobs:
           command: npm run coverage
       - store_artifacts:
           path: coverage
-          prefix: coverage    
-      - codecov/upload
+          prefix: coverage
+
+      - codecov/upload:
           file: {{ coverage/lcov.info }}
