@@ -1,5 +1,6 @@
 const request = require('supertest');
 const { expect } = require('chai');
+
 let server;
 
 describe('/', () => {
@@ -11,11 +12,9 @@ describe('/', () => {
   });
 
   describe('GET', async () => {
-    const exec = async () => {
-      return await request(server)
-        .get('/')
-        .send();
-    };
+    const exec = async () => await request(server)
+      .get('/')
+      .send();
 
     it('should return a json with the details of the api', async () => {
       const res = await exec();
