@@ -20,6 +20,9 @@ const postPlanet = async (objPlanet) => {
   return planet;
 };
 
+const getAllPlanets = async (planetName) => await Planet.find({ nome: new RegExp(planetName, 'i') });
+
 module.exports = {
   postPlanet,
+  getAllPlanets,
 };
