@@ -11,6 +11,8 @@ jobs:
       - image: circleci/mongo:latest
 
     working_directory: ~/repo
+    environment:
+      NODE_ENV: test
 
     steps:
       - checkout
@@ -30,5 +32,4 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
-      - run: export NODE_ENV=test
       - run: npm run test
