@@ -4,7 +4,7 @@
   "description": "API dos planetas de Star Wars para o teste da B2W.",
   "main": "bin/server.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha --exit --timeout 40000",
+    "test": "nyc ./node_modules/mocha/bin/mocha --exit --timeout 40000",
     "coverage": "nyc report --reporter=lcov",
     "start": "node bin/server.js",
     "dev": "nodemon bin/server.js"
