@@ -34,6 +34,6 @@ jobs:
       # run tests!
       - run:
           name: run test
-          command: npm run test
+          command: printenv
           environment: 
-            NODE_ENV: test        
+            NODE_ENV: test              
