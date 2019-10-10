@@ -48,4 +48,42 @@ describe('/planets', () => {
       expect(res.body.message).to.match(/específico/);
     });
   });
+
+  describe('GET ALL', () => {
+    let planeta2;
+    let planeta3;
+    let queryParam;
+    beforeEach(async () => {
+      planeta2 = {
+        nome: 'Yavin',
+        clima: 'Quente',
+        terreno: 'Acidentado',
+      };
+      planeta3 = {
+        nome: 'Hoth',
+        clima: 'Quente',
+        terreno: 'Acidentado',
+      };
+      await request(server).post('/planets').send(planeta);
+      await request(server).post('/planets').send(planeta2);
+      await request(server).post('/planets').send(planeta3);
+    });
+
+    const exec = async () => await request(server).get(`/planets?nome=${queryParam}`).send();
+
+    it('should return a list containing a specific planet', async () => {
+      queryParam = 'alderaan';
+      const res = await exec();
+      expect(res.status).to.be.equal(200);
+      expect(res.body[0].nome).to.be.equals('Alderaan');
+    });
+
+    it('should return a list with all the planets', async () => {
+      queryParam = '';
+      const res = await exec();
+      expect(res.body.length).to.be.equals(3);
+      expect(res.status).to.be.equals(200);
+    });
+  });
 });
+
