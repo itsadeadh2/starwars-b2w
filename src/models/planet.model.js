@@ -26,9 +26,8 @@ function validate(planet) {
   const schema = {
     nome: Joi.string().required(),
     clima: Joi.string().required(),
-    terreno: Joi.string().required(),
-    qtdeAparicoes: Joi.number().required(),
-  }
+    terreno: Joi.string().required()
+  };
   return Joi.validate(planet, schema);
 }
 
