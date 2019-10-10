@@ -13,6 +13,20 @@ const post = async (req, res) => {
   }
 };
 
+const getAll = async (req, res) => {
+  try {
+    const planets = await planetRepo.getAllPlanets(req.query.nome);
+    return res.send(planets);
+  } catch (err) {
+    return res.status(400).send({ message: err.message });
+  }
+};
+
+const getById = async (req, res) => {
+
+}
+
 module.exports = {
   post,
+  getAll,
 };
