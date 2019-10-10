@@ -6,12 +6,15 @@ const postUser = async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send({ message: error.details[0].message });
 
-  let user = req.body;
+  const userFromDb = await userRepo.getUserByEmail(req.body.email);
+  if (userFromDb) return res.status(400).send({ message: 'Usuario ja registrado!' });
+
+  const user = req.body;
 
   const salt = await bcrypt.genSalt(10);
   user.senha = await bcrypt.hash(user.senha, salt);
-  user = await userRepo.postUser(user);
-  return res.send(user);
+  const token = await userRepo.postUser(user);
+  return res.send({ token });
 };
 
 module.exports = {

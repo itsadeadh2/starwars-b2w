@@ -17,6 +17,7 @@ services:
       - /app/node_modules
       - ${PWD}:/app
     environment:
-      - "DATABASE=${DATABASE}"      
+      - "DATABASE=${DATABASE}"
+      - "JWTPRIVATEKEY=${JWTPRIVATEKEY}"      
     depends_on:
       - mongo
