@@ -24,8 +24,11 @@ const getAllPlanets = async (planetName) => await Planet.find({ nome: new RegExp
 
 const getPlanetById = async (planetId) => await Planet.findById(planetId);
 
+const deletePlanetById = async (planetId) => await Planet.findByIdAndRemove(planetId);
+
 module.exports = {
   postPlanet,
   getAllPlanets,
   getPlanetById,
+  deletePlanetById,
 };

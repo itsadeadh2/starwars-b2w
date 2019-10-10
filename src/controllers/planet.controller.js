@@ -33,10 +33,19 @@ const getById = async (req, res) => {
   }
 };
 
-}
+const deleteById = async (req, res) => {
+  try {
+    const planet = await planetRepo.deletePlanetById(req.params.id);
+    if (!planet) return res.status(404).send({ message: 'Planeta nao encontrado.' });
+    return res.send(planet);
+  } catch (err) {
+    return res.status(400).send({ message: err.message });
+  }
+};
 
 module.exports = {
   post,
   getAll,
   getById,
+  deleteById,
 };
