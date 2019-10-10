@@ -9,6 +9,8 @@ jobs:
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
       - image: circleci/mongo:latest
+        environment: 
+              NODE_ENV: test
 
     working_directory: ~/repo
 
@@ -30,8 +32,4 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
-      - run: 
-          name: Run tests!
-          command: npm run test
-          environment: 
-            NODE_ENV: test
+      - run: npm run test         
