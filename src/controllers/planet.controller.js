@@ -22,11 +22,21 @@ const getAll = async (req, res) => {
   }
 };
 
+
 const getById = async (req, res) => {
+  try {
+    const planet = await planetRepo.getPlanetById(req.params.id);
+    if (!planet) return res.status(404).send({ message: 'Planeta nao encontrado.' });
+    return res.send(planet);
+  } catch (err) {
+    return res.status(400).send({ message: err.message });
+  }
+};
 
 }
 
 module.exports = {
   post,
   getAll,
+  getById,
 };
