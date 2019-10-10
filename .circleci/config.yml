@@ -10,7 +10,7 @@ jobs:
       # documented at https://circleci.com/docs/2.0/circleci-images/
       - image: circleci/mongo:latest
         environment: 
-              NODE_ENV: test
+          NODE_ENV: test
 
     working_directory: ~/repo
 
