@@ -4,7 +4,7 @@
   "description": "API dos planetas de Star Wars para o teste da B2W.",
   "main": "bin/server.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha",
+    "test": "./node_modules/mocha/bin/mocha --exit",
     "start": "node bin/server.js",
     "dev": "nodemon bin/server.js"
   },
