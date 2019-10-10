@@ -16,5 +16,7 @@ services:
     volumes:
       - /app/node_modules
       - ${PWD}:/app
+    environment:
+      - "DATABASE=${DATABASE}"      
     depends_on:
       - mongo
