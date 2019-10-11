@@ -11,7 +11,7 @@ API dos planetas de Star Wars para o teste da B2W.
 
 ## Índice
 - [Como rodar](#como-rodar)
-- [Lista de Serviços](#lista-de-serviços)
+- [Lista de Serviços](#lista-de-servicos)
 
 
 
