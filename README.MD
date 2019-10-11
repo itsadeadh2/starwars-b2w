@@ -11,6 +11,7 @@ API dos planetas de Star Wars para o teste da B2W.
 
 ## Índice
 - [Como rodar](#como-rodar)
+- [Como utilizar](#como-utilizar)
 - [Lista de Serviços](#lista-de-servicos)
 
 
@@ -29,6 +30,9 @@ API dos planetas de Star Wars para o teste da B2W.
 - Execute o comando `npm run test`
 
 > PS: O motivo de ser necessário rodar a aplicação em modo desenvolvimento anteriormente é para que a mesma venha a subir o banco de dados mongo através do docker, facilitando assim o processo de teste da aplicação. Uma alternativa secundária poderia ser criar um segundo docker-compose e um segundo dockefile e subir outro stack api/mongo para executar os testes, no entanto não creio que seja vantajoso esperar a criação de mais dois containers apenas para rodar alguns testes.
+
+# Como utilizar
+Voce pode utilizar a **SWAPI** no endereço http://www.itsadeadh2.com/projects/swapi/ ou localmente seguindo o passo a passo de [como rodá-la em seu ambiente](#como-rodar).
 
 # Lista de Servicos
 ## Index
@@ -49,7 +53,7 @@ API dos planetas de Star Wars para o teste da B2W.
 #### Criar um planeta
 ```shell
 curl -X POST \
-  http://localhost:3000/planets \
+  http://www.itsadeadh2.com/projects/swapi/planets \
   -H 'Content-Type: application/json' \
   -H 'x-auth-token: seuauthtoken' \
   -d '{
@@ -72,7 +76,7 @@ Retorna
 #### Listar todos os planetas
 ```shell
 curl -X GET \
-  'http://localhost:3000/planets' \
+  http://www.itsadeadh2.com/projects/swapi/planets' \
   -H 'Content-Type: application/json' \
   -H 'x-auth-token: seuauthtoken'
 ```
@@ -108,7 +112,7 @@ Retorna
 #### Buscar planeta por id
 ```shell
 curl -X GET \
-  http://localhost:3000/planets/5da0c5bb4c147f048f12a388 \
+  http://www.itsadeadh2.com/projects/swapi/planets/5da0c5bb4c147f048f12a388 \
   -H 'Content-Type: application/json' \
   -H 'x-auth-token: seuauthtoken'
 ```
@@ -126,7 +130,7 @@ Retorna
 #### Remover um planeta
 ```shell
 curl -X DELETE \
-  http://localhost:3000/planets/5da0c5bb4c147f048f12a388 \
+  http://www.itsadeadh2.com/projects/swapi/planets/5da0c5bb4c147f048f12a388 \
   -H 'Content-Type: application/json' \
   -H 'x-auth-token: seuauthtoken'
 ```
@@ -151,7 +155,7 @@ Retorna
 #### Criar um usuario
 ```shell
 curl -X POST \
-  http://localhost:3000/users \
+  http://www.itsadeadh2.com/projects/swapi/users \
   -H 'Content-Type: application/json' \
   -d '{
 	"email": "lukinhoskydellas@alliance.gov",
@@ -173,7 +177,7 @@ Retorna
 
 ```shell
 curl -X POST \
-  http://localhost:3000/auth \
+  http://www.itsadeadh2.com/projects/swapi/auth \
   -H 'Content-Type: application/json' \
   -d '{
 	"email": "lukinhoskydellas@alliance.gov",
