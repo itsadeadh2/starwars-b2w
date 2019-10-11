@@ -6,7 +6,7 @@ const authenticate = (req, res, next) => {
   if (!token) return res.status(401).send({ message: 'Acesso negado!' });
 
   try {
-    const decoded = jwt.verify(token, config.get('jwtPrivateKey'));
+    const decoded = jwt.verify(token, process.env.JWTPRIVATEKEY);
     req.user = decoded;
     return next();
   } catch (ex) {
