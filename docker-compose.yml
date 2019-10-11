@@ -5,7 +5,7 @@ services:
     container_name: mongo_sw 
     image: mongo
     ports:
-      - 27017:27017
+      - "27017:${MONGO_PORT}"
   api:
     container_name: swapi
     build:
