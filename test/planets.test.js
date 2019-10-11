@@ -58,6 +58,8 @@ describe('/planets', () => {
   describe('GET ALL', () => {
     let planeta2;
     let queryParam;
+    let page;
+    let perPage;
     beforeEach(async () => {
       planeta2 = {
         nome: 'Yavin',
@@ -68,10 +70,10 @@ describe('/planets', () => {
       await request(server).post('/planets').set('x-auth-token', token).send(planeta2);
     });
 
-    const exec = async () => await request(server).get(`/planets?nome=${queryParam}`).set('x-auth-token', token).send();
+    const exec = async () => await request(server).get(`/planets?nome=${queryParam}&page=${page}&perPage=${perPage}`).set('x-auth-token', token).send();
 
-    it('should return a list containing a specific planet', async () => {
-      queryParam = 'alderaan';
+    it('should return a list containing planets that match the param nome', async () => {
+      queryParam = 'ald';
       const res = await exec();
       expect(res.status).to.be.equal(200);
       expect(res.body[0].nome).to.be.equals('Alderaan');
@@ -82,6 +84,13 @@ describe('/planets', () => {
       const res = await exec();
       expect(res.body.length).to.be.equals(2);
       expect(res.status).to.be.equals(200);
+    });
+
+    it('should return a list with only one result when queryparam perpage is 1', async () => {
+      perPage = 1;
+      const res = await exec();
+      expect(res.status).to.be.equals(200);
+      expect(res.body.length).to.be.equals(1);
     });
   });
 

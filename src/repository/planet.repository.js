@@ -20,7 +20,10 @@ const postPlanet = async (objPlanet) => {
   return planet;
 };
 
-const getAllPlanets = async (planetName) => await Planet.find({ nome: new RegExp(planetName, 'i') });
+const getAllPlanets = async (planetName, { perPage, page }) => await Planet
+  .find({ nome: new RegExp(planetName, 'i') })
+  .skip((perPage * page) - perPage)
+  .limit(perPage);
 
 const getPlanetById = async (planetId) => await Planet.findById(planetId);
 

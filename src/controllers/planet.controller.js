@@ -14,8 +14,10 @@ const post = async (req, res) => {
 };
 
 const getAll = async (req, res) => {
+  const perPage = parseInt(req.query.perPage, 10) || 10;
+  const page = parseInt(req.query.page, 10) || 1;
   try {
-    const planets = await planetRepo.getAllPlanets(req.query.nome);
+    const planets = await planetRepo.getAllPlanets(req.query.nome, { perPage, page });
     return res.send(planets);
   } catch (err) {
     return res.status(400).send({ message: err.message });
