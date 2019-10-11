@@ -10,29 +10,40 @@ API dos planetas de Star Wars para o teste da B2W.
 <hr>
 
 ## Índice
-- [Como rodar](#como-rodar)
 - [Como utilizar](#como-utilizar)
+- [Tecnologias](#tecnologias)
+- [Rodar com o Docker](#rodar-com-docker)
+- [Rodar Testes](#rodar-testes)
 - [Lista de Serviços](#lista-de-servicos)
 
+# Como utilizar
+Voce pode utilizar a **SWAPI** no endereço http://www.itsadeadh2.com/projects/swapi/ ou localmente seguindo o passo a passo de [como rodá-la em seu ambiente](#como-rodar).
 
+# Tecnologias
+- [ES6](https://www.w3schools.com/Js/js_es6.asp "ES6")
+- [NodeJS](https://nodejs.org/en/ "NodeJS")
+- [Express](https://www.npmjs.com/package/express "Express")
+- [MongoDB](https://www.mongodb.com/ "MongoDB")
+- [Mongoose](https://www.npmjs.com/package/mongoose "Mongoose")
+- [Mocha](https://www.npmjs.com/package/mocha "Mocha")
+- [Supertest](https://www.npmjs.com/package/supertest "Supertest")
+- [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken "jsonwebtoken")
+- [bcrypt](https://www.npmjs.com/package/bcrypt "bcrypt")
+- [winston](https://www.npmjs.com/package/winston)
 
-# Como rodar
-
-### Rodar a aplicação em modo desenvolvimento:
+# Rodar com docker
 
 - Com o docker e docker compose instalados, rode a aplicação com o comando `docker-compose up --build`
 
-### Rodar a aplicação em modo testes:
-- Rode a aplicação em modo desenvolvimento, como descrito na seção anterior
+# Rodar testes
+
+- Rode a aplicação com o docker-compose, [como descrito na seção anterior](#rodar-com-docker)
 - Defina a envvar `PORT` para uma porta livre no seu pc/servidor *ex*: `export PORT=5000`
 - Defina a envvar `DATABASE` como a uri do mongo rodando no docker-compose *ex*: `export DATABASE=mongodb://localhost/star_wars_planets_test_db`
 - Defina a envvar `JWTPRIVATEKEY` com o valor de sua chave privada para criação dos tokens jwt *ex*: `export JWTPRIVATEKEY=frasesaleatoriastendemasermaissegurasquecharsrandomicos`
 - Execute o comando `npm run test`
 
 > PS: O motivo de ser necessário rodar a aplicação em modo desenvolvimento anteriormente é para que a mesma venha a subir o banco de dados mongo através do docker, facilitando assim o processo de teste da aplicação. Uma alternativa secundária poderia ser criar um segundo docker-compose e um segundo dockefile e subir outro stack api/mongo para executar os testes, no entanto não creio que seja vantajoso esperar a criação de mais dois containers apenas para rodar alguns testes.
-
-# Como utilizar
-Voce pode utilizar a **SWAPI** no endereço http://www.itsadeadh2.com/projects/swapi/ ou localmente seguindo o passo a passo de [como rodá-la em seu ambiente](#como-rodar).
 
 # Lista de Servicos
 ## Index
@@ -144,6 +155,49 @@ Retorna
     "qtdeAparicoes": 4,
     "__v": 0
 }
+```
+
+### Pesquisar planetas
+>Você pode pesquisar os planetas pelo nome utilizando o parametro name como descrito abaixo
+```shell
+curl -X GET \
+  'http://www.itsadeadh2.com/projects/swapi/planets?nome=alderaan' \
+  -H 'Content-Type: application/json' \
+  -H 'x-auth-token: seuauthtoken'
+```
+Que te retornaria
+```json
+[
+    {
+        "_id": "5da0ea80e0ba28001c989638",
+        "nome": "Alderaan",
+        "clima": "árido",
+        "terreno": "rochoso",
+        "qtdeAparicoes": 2,
+        "__v": 0
+    }
+]
+```
+### Pesquisar planetas com paginacao
+>Você também pode paginar os resultados de sua pesquisa com os parametros **page** e **perPage**, que seriam **a página que você quer** e a **quantidade de resultados por página** respectivamente
+```shell
+curl -X GET \
+  'http://www.itsadeadh2.com/projects/swapi/planets?page=1&perPage=1' \
+  -H 'Content-Type: application/json' \
+  -H 'x-auth-token: seuauthtoken'
+```
+Que te retornaria
+```json
+[
+    {
+        "_id": "5da0ea80e0ba28001c989638",
+        "nome": "Alderaan",
+        "clima": "árido",
+        "terreno": "rochoso",
+        "qtdeAparicoes": 2,
+        "__v": 0
+    }
+]
 ```
 
 ## Users
