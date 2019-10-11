@@ -16,7 +16,9 @@ jobs:
             cd /swapi
             git pull origin master
             rm package-lock.json
-            docker-compose up -d --build --force-recreate                                    
+            docker build  -t swapi .
+            docker rm -f swapi
+            docker run --rm --network web --name swapi -e DATABASE=mongodb://mongo/star_wars_planets_db -e PORT=3001 -e JWTPRIVATEKEY=$JWTPRIVATEKEY -d swapi                              
             ENDSSH
 
   test:
