@@ -1,6 +1,8 @@
 const request = require('supertest');
+const { expect } = require('chai');
 const { Planet } = require('../src/models/planet.model');
-const expect = require('chai').expect;
+const userRepo = require('../src/repository/user.repository');
+const { User } = require('../src/models/user.model');
 
 let server;
 
@@ -10,10 +12,12 @@ describe('/planets', () => {
   });
   afterEach(async () => {
     await Planet.deleteMany({});
+    await User.deleteMany({});
     await server.close();
   });
 
   let planeta;
+  let token;
 
   beforeEach(async () => {
     planeta = {
@@ -21,11 +25,13 @@ describe('/planets', () => {
       clima: 'Quente',
       terreno: 'Acidentado',
     };
+    token = await userRepo.postUser({ email: 'fakemail@mail.com', senha: 'senha123' });
   });
 
   describe('POST', () => {
     const exec = async () => await request(server)
       .post('/planets')
+      .set('x-auth-token', token)
       .send(planeta);
 
     it('should return 200 if everything is ok', async () => {
@@ -58,11 +64,11 @@ describe('/planets', () => {
         clima: 'Quente',
         terreno: 'Acidentado',
       };
-      await request(server).post('/planets').send(planeta);
-      await request(server).post('/planets').send(planeta2);
+      await request(server).post('/planets').set('x-auth-token', token).send(planeta);
+      await request(server).post('/planets').set('x-auth-token', token).send(planeta2);
     });
 
-    const exec = async () => await request(server).get(`/planets?nome=${queryParam}`).send();
+    const exec = async () => await request(server).get(`/planets?nome=${queryParam}`).set('x-auth-token', token).send();
 
     it('should return a list containing a specific planet', async () => {
       queryParam = 'alderaan';
@@ -79,13 +85,13 @@ describe('/planets', () => {
     });
   });
 
-  describe('DELETE BY ID', () => {   
+  describe('DELETE BY ID', () => {
     let planetId;
     beforeEach(async () => {
-      planeta = await request(server).post('/planets').send(planeta);
+      planeta = await request(server).post('/planets').set('x-auth-token', token).send(planeta);
     });
 
-    const exec = async () => await request(server).delete(`/planets/${planetId}`).send();
+    const exec = async () => await request(server).delete(`/planets/${planetId}`).set('x-auth-token', token).send();
 
     it('should delete the planet with the given id', async () => {
       planetId = planeta.body._id;
@@ -112,10 +118,10 @@ describe('/planets', () => {
   describe('GET BY ID', () => {
     let planetId;
     beforeEach(async () => {
-      planeta = await request(server).post('/planets').send(planeta);
+      planeta = await request(server).post('/planets').set('x-auth-token', token).send(planeta);
     });
 
-    const exec = async () => await request(server).get(`/planets/${planetId}`).send();
+    const exec = async () => await request(server).get(`/planets/${planetId}`).set('x-auth-token', token).send();
 
     it('should return a planet by its id', async () => {
       planetId = planeta.body._id;
