@@ -19,7 +19,7 @@ jobs:
             docker-compose up -d --build --force-recreate                                    
             ENDSSH
 
-  build:
+  test:
     docker:
       # specify the version you desire here
       - image: circleci/node:8.10
@@ -64,3 +64,9 @@ jobs:
           prefix: coverage    
       - codecov/upload:
           file: coverage/lcov.info
+workflows:
+  version: 2.1
+  test_and_deploy:
+    jobs:
+      - test
+      - deploy
