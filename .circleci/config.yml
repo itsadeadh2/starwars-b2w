@@ -13,7 +13,7 @@ jobs:
           name: Deploy Over SSH
           command: |
             ssh $SSH_USER@$SSH_HOST \<<'ENDSSH'
-            cd /telegram
+            cd /swapi
             git pull origin master
             rm package-lock.json
             docker-compose up -d --build --force-recreate                                    
