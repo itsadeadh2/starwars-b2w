@@ -10,9 +10,9 @@ const postUser = async (req, res) => {
   if (!userFromDb) return res.status(400).send({ message: 'Email ou Senha inválidos.' });
 
   const validPassword = await bcrypt.compare(req.body.senha, userFromDb.senha);
-  if(!validPassword) return res.status(400).send({ message: 'Email ou Senha inválidos.' });
+  if (!validPassword) return res.status(400).send({ message: 'Email ou Senha inválidos.' });
 
-  const token = user.generateAuthToken();
+  const token = userFromDb.generateAuthToken();
   return res.send({ token });
 };
 
