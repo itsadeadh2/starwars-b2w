@@ -15,6 +15,7 @@ API dos planetas de Star Wars para o teste da B2W.
 - [Rodar com o Docker](#rodar-com-docker)
 - [Rodar Testes](#rodar-testes)
 - [Lista de Serviços](#lista-de-servicos)
+- [Licença](#licenca)
 
 # Como utilizar
 Voce pode utilizar a **SWAPI** no endereço http://www.itsadeadh2.com/projects/swapi/ ou localmente seguindo o passo a passo de [como rodá-la em seu ambiente](#como-rodar).
@@ -243,4 +244,7 @@ Retorna
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZGEwY2E2NzRjMTQ3ZjA0OGYxMmEzOGEiLCJlbWFpbCI6Imx1a2luaG9za3lkZWxsYXNAYWxsaWFuY2UuZ292IiwiaWF0IjoxNTcwODE4ODMyfQ.tefFCYnFx31LVhV0Ql0TCFdVxJ2xyMWhVucHyMzohe8"
 }
 ```
+# Licenca
+
+This project is under the [MIT](LICENSE) license.
 
