@@ -40,7 +40,7 @@ Voce pode utilizar a **SWAPI** no endereço http://www.itsadeadh2.com/projects/s
 - Rode a aplicação com o docker-compose, [como descrito na seção anterior](#rodar-com-docker)
 - Rode os testes com o comando `docker-compose exec -e NODE_ENV=test api npm run test`
 
-> PS: O motivo de ser necessário rodar a aplicação em modo desenvolvimento anteriormente é para que a mesma venha a subir o banco de dados mongo através do docker, facilitando assim o processo de teste da aplicação. Uma alternativa secundária poderia ser criar um segundo docker-compose e um segundo dockefile e subir outro stack api/mongo para executar os testes, no entanto não creio que seja vantajoso esperar a criação de mais dois containers apenas para rodar alguns testes.
+> PS: O motivo de ser necessário rodar a aplicação em modo desenvolvimento anteriormente é para que a mesma venha a subir o banco de dados mongo através do docker, facilitando assim o processo de teste da aplicação.
 
 # Lista de Servicos
 ## Index
@@ -81,6 +81,8 @@ Retorna
     "__v": 0
 }
 ```
+> Sim, se o usuario faz um request cujo nome esteja "[proximo o suficiente](src/services/swapi.service.js)" de algum planeta da SWAPI, a automaticamente selecionará este planeta para ele, evitando tentativas desnecessárias.
+
 #### Listar todos os planetas
 ```shell
 curl -X GET \
