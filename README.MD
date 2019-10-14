@@ -33,7 +33,7 @@ Voce pode utilizar a **SWAPI** no endereço http://www.itsadeadh2.com/projects/s
 
 # Rodar com docker
 
-- Com o docker e docker compose instalados, rode a aplicação com o comando `docker-compose up --build`
+- Com o [docker](https://docs.docker.com/install/ "docker") e [docker compose](https://docs.docker.com/compose/install/ "docker compose") instalados, rode a aplicação com o comando `docker-compose up --build`
 
 # Rodar testes
 
