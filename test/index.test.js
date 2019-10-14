@@ -5,10 +5,9 @@ let server;
 
 describe('/', () => {
   beforeEach(async () => {
-    server = require('../bin/server');
+    server = require('../src/app');
   });
   afterEach(async () => {
-    await server.close();
   });
 
   describe('GET', async () => {

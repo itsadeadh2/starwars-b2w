@@ -8,12 +8,11 @@ let server;
 
 describe('/planets', () => {
   beforeEach(async () => {
-    server = require('../bin/server');
+    server = require('../src/app');
   });
   afterEach(async () => {
     await Planet.deleteMany({});
     await User.deleteMany({});
-    await server.close();
   });
 
   let planeta;

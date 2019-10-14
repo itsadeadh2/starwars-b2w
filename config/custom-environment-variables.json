@@ -1,0 +1,5 @@
+{
+  "port": "SWAPI_PORT",
+  "jwtprivatekey": "SWAPI_PRIVATE_KEY",
+  "db": "SWAPI_DATABASE"
+}

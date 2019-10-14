@@ -18,7 +18,7 @@ jobs:
             rm package-lock.json
             docker build  -t swapi .
             docker rm -f swapi
-            docker run --rm --network web --name swapi -e DATABASE=mongodb://mongo/star_wars_planets_db -e PORT=3001 -e JWTPRIVATEKEY=$JWTPRIVATEKEY -d swapi                              
+            docker run --rm --network web --name swapi -e NODE_ENV=production -e PORT=3001 -e SWAPI_PRIVATE_KEY=$JWTPRIVATEKEY -d swapi                              
             ENDSSH
 
   test:
@@ -31,7 +31,7 @@ jobs:
       # documented at https://circleci.com/docs/2.0/circleci-images/
       - image: circleci/mongo:latest
         environment: 
-          DATABASE: mongodb://localhost/star_wars_planets_db
+          NODE_ENV: test
 
     working_directory: ~/repo
 
@@ -57,7 +57,7 @@ jobs:
           name: run test
           command: npm run test
           environment: 
-            DATABASE: mongodb://localhost/star_wars_planets_db
+            NODE_ENV: test
       - run:
           name: Generate code coverage
           command: npm run coverage

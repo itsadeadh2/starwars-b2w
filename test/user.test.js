@@ -1,17 +1,17 @@
 const request = require('supertest');
 const { expect } = require('chai');
 const jwt = require('jsonwebtoken');
+const config = require('config');
 const { User } = require('../src/models/user.model');
 
 let server;
 
 describe('/users', () => {
   beforeEach(async () => {
-    server = require('../bin/server');
+    server = require('../src/app');
   });
   afterEach(async () => {
     await User.deleteMany({});
-    await server.close();
   });
 
   let user;
@@ -29,7 +29,7 @@ describe('/users', () => {
     it('should return 200 and a valid user token if everything is ok', async () => {
       const res = await exec();
       expect(res.status).to.be.equals(200);
-      expect(jwt.verify(res.body.token, process.env.JWTPRIVATEKEY)).to.have.property('email');
+      expect(jwt.verify(res.body.token, config.get('jwtprivatekey'))).to.have.property('email');
     });
 
     it('should return 400 if the user already exists', async () => {

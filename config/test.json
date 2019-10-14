@@ -1,3 +1,5 @@
 {
-  "db": "mongodb://mongo/star_wars_planets_db"
+  "db": "mongodb://mongo/star_wars_planets_test_db",
+  "jwtprivatekey": "thisisaverystrongprivatekey",
+  "port": "5000"
 }

@@ -5,7 +5,7 @@ services:
     container_name: mongo_sw 
     image: mongo
     ports:
-      - "27017:${MONGO_PORT}"
+      - 27017:27017
   api:
     container_name: swapi
     build:
@@ -17,7 +17,8 @@ services:
       - /app/node_modules
       - ${PWD}:/app
     environment:
-      - "DATABASE=${DATABASE}"
-      - "JWTPRIVATEKEY=${JWTPRIVATEKEY}"      
+      - "SWAPI_DATABASE=${SWAPI_DATABASE}"
+      - "SWAPI_PRIVATE_KEY=${SWAPI_PRIVATE_KEY}" 
+      - "NODE_ENV=${NODE_ENV}"     
     depends_on:
       - mongo
