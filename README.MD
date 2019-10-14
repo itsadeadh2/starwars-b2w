@@ -201,7 +201,7 @@ Que te retornaria
 
 |Caminho|Método|Status Code|Descricao|
 |:---|:----:|:---------:|:----------|
-|`/users`|`POST`|200|Registra um usuario|
+|`/users`|`POST`|201|Registra um usuario|
 
 #### Criar um usuario
 ```shell

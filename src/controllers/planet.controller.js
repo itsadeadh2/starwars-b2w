@@ -12,7 +12,7 @@ const post = async (req, res) => {
     planet.nome = name;
     planet.qtdeAparicoes = await swApiService.getNumberOfAppearances(url);
     planet = await planetRepo.postPlanet(req.body);
-    return res.send(planet);
+    return res.status(201).send(planet);
   } catch (err) {
     return res.status(400).send({ message: err.message });
   }

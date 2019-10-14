@@ -12,7 +12,7 @@ const postUser = async (req, res) => {
 
   
   const token = await userRepo.postUser(user);
-  return res.send({ token });
+  return res.status(201).send({ token });
 };
 
 module.exports = {
