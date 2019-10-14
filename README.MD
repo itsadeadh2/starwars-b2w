@@ -57,7 +57,7 @@ Voce pode utilizar a **SWAPI** no endereço http://www.itsadeadh2.com/projects/s
 |`/planets`|`POST`|201|Cria um planeta|
 |`/planets`|`GET`|200|Lista todos os planetas|
 |`/planets/:id`|`GET`|200|Retorna um planeta específico por id|
-|`/planets/:id`|`DELETE`|204|Apaga um planeta|
+|`/planets/:id`|`DELETE`|200|Apaga um planeta|
 
 #### Criar um planeta
 ```shell
