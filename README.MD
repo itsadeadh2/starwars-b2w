@@ -15,6 +15,7 @@ API dos planetas de Star Wars para o teste da B2W.
 - [Rodar com o Docker](#rodar-com-docker)
 - [Rodar Testes](#rodar-testes)
 - [Lista de Serviços](#lista-de-servicos)
+- [Ciclo de desenvolvimento](#ciclo-de-desenvolvimento)
 - [Licença](#licenca)
 
 # Como utilizar
@@ -244,6 +245,9 @@ Retorna
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZGEwY2E2NzRjMTQ3ZjA0OGYxMmEzOGEiLCJlbWFpbCI6Imx1a2luaG9za3lkZWxsYXNAYWxsaWFuY2UuZ292IiwiaWF0IjoxNTcwODE4ODMyfQ.tefFCYnFx31LVhV0Ql0TCFdVxJ2xyMWhVucHyMzohe8"
 }
 ```
+# Ciclo de desenvolvimento
+Para ter uma noção melhor de como a API foi desenvolvida, basta checar as issues/milestones do projeto [aqui](https://github.com/itsadeadh2/starwars-b2w/issues)
+
 # Licenca
 
 This project is under the [MIT](LICENSE) license.
