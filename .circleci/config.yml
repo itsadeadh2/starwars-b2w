@@ -18,7 +18,7 @@ jobs:
             rm package-lock.json
             docker build  -t swapi .
             docker rm -f swapi
-            docker run --rm --network web --name swapi -e NODE_ENV=production -e PORT=3001 -e SWAPI_PRIVATE_KEY=$JWTPRIVATEKEY -d swapi                              
+            docker run --rm --network web --name swapi -e NODE_ENV=production -e PORT=3001 -e SWAPI_PRIVATE_KEY=$JWTPRIVATEKEY -e SWAPI_PORT=$SWAPI_PORT -d swapi                              
             ENDSSH
 
   test:
