@@ -58,6 +58,8 @@ jobs:
           command: npm run test
           environment: 
             NODE_ENV: test
+            SWAPI_DATABASE: mongodb://localhost/star_wars_planets_db
+
       - run:
           name: Generate code coverage
           command: npm run coverage
