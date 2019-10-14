@@ -35,7 +35,7 @@ describe('/planets', () => {
 
     it('should return 200 if everything is ok', async () => {
       const res = await exec();
-      expect(res.status).to.be.equal(200);
+      expect(res.status).to.be.equal(201);
       expect(res.body).to.have.property('qtdeAparicoes');
     });
 

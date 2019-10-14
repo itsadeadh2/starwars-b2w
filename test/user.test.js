@@ -28,7 +28,7 @@ describe('/users', () => {
 
     it('should return 200 and a valid user token if everything is ok', async () => {
       const res = await exec();
-      expect(res.status).to.be.equals(200);
+      expect(res.status).to.be.equals(201);
       expect(jwt.verify(res.body.token, config.get('jwtprivatekey'))).to.have.property('email');
     });
 
