@@ -38,10 +38,7 @@ Voce pode utilizar a **SWAPI** no endereço http://www.itsadeadh2.com/projects/s
 # Rodar testes
 
 - Rode a aplicação com o docker-compose, [como descrito na seção anterior](#rodar-com-docker)
-- Defina a envvar `PORT` para uma porta livre no seu pc/servidor *ex*: `export PORT=5000`
-- Defina a envvar `DATABASE` como a uri do mongo rodando no docker-compose *ex*: `export DATABASE=mongodb://localhost/star_wars_planets_test_db`
-- Defina a envvar `JWTPRIVATEKEY` com o valor de sua chave privada para criação dos tokens jwt *ex*: `export JWTPRIVATEKEY=frasesaleatoriastendemasermaissegurasquecharsrandomicos`
-- Execute o comando `npm run test`
+- Rode os testes com o comando `docker-compose exec -e NODE_ENV=test api npm run test`
 
 > PS: O motivo de ser necessário rodar a aplicação em modo desenvolvimento anteriormente é para que a mesma venha a subir o banco de dados mongo através do docker, facilitando assim o processo de teste da aplicação. Uma alternativa secundária poderia ser criar um segundo docker-compose e um segundo dockefile e subir outro stack api/mongo para executar os testes, no entanto não creio que seja vantajoso esperar a criação de mais dois containers apenas para rodar alguns testes.
 
@@ -56,9 +53,9 @@ Voce pode utilizar a **SWAPI** no endereço http://www.itsadeadh2.com/projects/s
 
 |Caminho|Método|Status Code|Descricao|
 |:---|:----:|:---------:|:----------|
+|`/planets`|`POST`|201|Cria um planeta|
 |`/planets`|`GET`|200|Lista todos os planetas|
 |`/planets/:id`|`GET`|200|Retorna um planeta específico por id|
-|`/planets`|`POST`|201|Cria um planeta|
 |`/planets/:id`|`DELETE`|204|Apaga um planeta|
 
 #### Criar um planeta
