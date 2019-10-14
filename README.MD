@@ -81,7 +81,7 @@ Retorna
     "__v": 0
 }
 ```
-> Sim, se o usuario faz um request cujo nome esteja "[proximo o suficiente](src/services/swapi.service.js)" de algum planeta da SWAPI, a automaticamente selecionará este planeta para ele, evitando tentativas desnecessárias.
+> Sim, se o usuario faz um request cujo nome esteja "[proximo o suficiente](src/services/swapi.service.js)" de algum planeta da SWAPI, a API automaticamente selecionará este planeta para ele, evitando tentativas desnecessárias.
 
 #### Listar todos os planetas
 ```shell
