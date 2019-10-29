@@ -4,6 +4,10 @@
 
 [![CircleCI](https://circleci.com/gh/itsadeadh2/starwars-b2w.svg?style=svg)](https://circleci.com/gh/itsadeadh2/starwars-b2w)
 [![codecov](https://codecov.io/gh/itsadeadh2/starwars-b2w/branch/master/graph/badge.svg)](https://codecov.io/gh/itsadeadh2/starwars-b2w)
+![GitHub](https://img.shields.io/github/license/itsadeadh2/starwars-b2w)
+![GitHub last commit (branch)](https://img.shields.io/github/last-commit/itsadeadh2/starwars-b2w/master)
+![GitHub repo size](https://img.shields.io/github/repo-size/itsadeadh2/starwars-b2w)
+
 
 API dos planetas de Star Wars para o teste da B2W.
 
